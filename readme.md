@@ -8,3 +8,14 @@ Please create a database that will hold plants. You don't need to add more than 
 ## To run
 
 Clone this repo then type `ruby program.rb`
+
+
+## SQLite Table Definition:
+
+```sql
+CREATE TABLE Plants (
+	Id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	Name TEXT,
+	SpaceLow INTEGER,
+    SpaceHigh INTEGER);
+```
