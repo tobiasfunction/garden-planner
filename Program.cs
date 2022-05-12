@@ -7,60 +7,96 @@ namespace GardenBox
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine("hello ".PadRight(20, '*'));
-            System.Console.WriteLine("hello hello ".PadRight(20, '*'));
-
-
             SQLiteCommand cmd;
             SQLiteDataReader reader;
 
             int bedWidth = 0;
             int bedLength = 0;
-            int bedArea = 0;
+            int bedSqIn = 0;
 
-            SQLiteConnection conn = new SQLiteConnection(@"Data Source = /home/tob/Documents/Academy/Code/Git/dbs/gardenbox.sqlite");
-            conn.Open();
-            bool going = true;
+            BedArea area = new BedArea();
 
-            while (going)
+            SQLiteConnection con = new SQLiteConnection(@"Data Source = /home/tob/Documents/Academy/Code/Git/dbs/gardenbox.sqlite");
+            // con.Open();
+
+            bool mainLoop = true;
+            while (mainLoop)
             {
-                Console.WriteLine("Calculate using:\n 1) width and length\n 2) square feet");
-                string nav = Console.ReadLine();
+                // @MainMenu
+                Console.WriteLine("Select an option:\n 1) add size of bed\n 2) calculate plant spacing\n 3) view plant database \n Q) quit program");
+
+                string nav = Console.ReadLine().ToUpper();
 
                 if (nav == "1")
                 {
-                    // Calculate using length and width
-
+                    bedSqIn = area.Get();
                 }
                 else if (nav == "2")
                 {
-                    // Calculate using square feet
+                    // Calculate plant spacing
                 }
-                else
+                else if (nav == "3")
                 {
-                    // Invalid input
+                    // View plant database
+                }
+                else if (nav == "Q")
+                {
+                    mainLoop = false;
                 }
 
-                System.Console.WriteLine("What vegetable are you planting?");
 
-                cmd = new SQLiteCommand("SELECT Id, Name FROM Plants", con);
-                reader = cmd.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        Console.WriteLine($" {reader["Id"]}) {reader["Name"]}");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Not found.");
-                }
-                Console.ReadLine();
-                going = false;
             }
-
-            conn.Close();
+            // con.Close();
         }
     }
+
+    class BedArea
+    {
+        public int Get()
+        {
+            Console.WriteLine("Calculate using:\n 1) width and length\n 2) square feet\n B) go back to previous menu");
+            string nav = Console.ReadLine().ToUpper();
+
+            if (nav == "1")
+            {
+                // Calculate using length and width
+
+            }
+            else if (nav == "2")
+            {
+                // Calculate using square feet
+            }
+            else if (nav == "B")
+            {
+                // Return to previous menu
+            }
+            else
+            {
+                // Invalid input
+            }
+            return 20; //placeholder to stop build error
+        }
+
+    }
+
+    // class PlantDatabase
+    // {
+    //     public void View()
+    //     {
+    //         cmd = new SQLiteCommand("SELECT Id, Name FROM Plants", con);
+    //         reader = cmd.ExecuteReader();
+    //         if (reader.HasRows)
+    //         {
+    //             while (reader.Read())
+    //             {
+    //                 Console.WriteLine($" {reader["Id"]}) {reader["Name"]}");
+    //             }
+    //         }
+    //         else
+    //         {
+    //             Console.WriteLine("Not found.");
+    //         }
+
+    //     }
+    // }
 }

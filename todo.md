@@ -24,7 +24,7 @@
 	- [ ] Get spacing information from DB
 	- [ ] Calculate min & max number of plants
 	- [ ] Display plant name, box area in square feet,
-- [ ] Quit
+
 
 ### Extras
 - [ ] Figure out how to have a user `.gitignore`-ed config file to store user's connection string
