@@ -9,15 +9,10 @@ namespace GardenBox
         {
             SQLiteCommand cmd;
             SQLiteDataReader reader;
-
-            int bedWidth = 0;
-            int bedLength = 0;
-            int bedSqIn = 0;
-
             BedArea area = new BedArea();
 
             SQLiteConnection con = new SQLiteConnection(@"Data Source = /home/tob/Documents/Academy/Code/Git/dbs/gardenbox.sqlite");
-            // con.Open();
+            con.Open();
 
             bool mainLoop = true;
             while (mainLoop)
@@ -29,7 +24,7 @@ namespace GardenBox
 
                 if (nav == "1")
                 {
-                    bedSqIn = area.Get();
+                    bed.Set();
                 }
                 else if (nav == "2")
                 {
@@ -37,22 +32,35 @@ namespace GardenBox
                 }
                 else if (nav == "3")
                 {
-                    // View plant database
+                    cmd = new SQLiteCommand("SELECT Id, Name FROM Plants", con);
+                    reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            Console.WriteLine($" {reader["Id"]}) {reader["Name"]}");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not found.");
+                    }
                 }
                 else if (nav == "Q")
                 {
                     mainLoop = false;
                 }
-
-
             }
-            // con.Close();
+            con.Close();
         }
     }
 
-    class BedArea
+    class Bed
     {
-        public int Get()
+        public int width;
+        public int length;
+        public int area;
+        public void Set()
         {
             Console.WriteLine("Calculate using:\n 1) width and length\n 2) square feet\n B) go back to previous menu");
             string nav = Console.ReadLine().ToUpper();
@@ -60,7 +68,6 @@ namespace GardenBox
             if (nav == "1")
             {
                 // Calculate using length and width
-
             }
             else if (nav == "2")
             {
@@ -74,29 +81,6 @@ namespace GardenBox
             {
                 // Invalid input
             }
-            return 20; //placeholder to stop build error
         }
-
     }
-
-    // class PlantDatabase
-    // {
-    //     public void View()
-    //     {
-    //         cmd = new SQLiteCommand("SELECT Id, Name FROM Plants", con);
-    //         reader = cmd.ExecuteReader();
-    //         if (reader.HasRows)
-    //         {
-    //             while (reader.Read())
-    //             {
-    //                 Console.WriteLine($" {reader["Id"]}) {reader["Name"]}");
-    //             }
-    //         }
-    //         else
-    //         {
-    //             Console.WriteLine("Not found.");
-    //         }
-
-    //     }
-    // }
 }
