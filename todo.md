@@ -11,13 +11,12 @@
 	- [x] Calculate plant spacing
 	- [x] View plant database
 	- [x] Quit
-- [ ] Add Size Data
-	- [ ] Input bed length and width
-		- [ ] Get & parse input
-		- [ ] Convert to square inches
-	- [ ] Input bed area
-		- [ ] Get & parse input
-		- [ ] Convert to square inches
+- [x] Add Size Data
+	- [x] Input bed length and width
+		- [x] Get & parse input
+		- [x] Convert to square feet
+	- [x] Input bed area
+		- [x] Get & parse input
 - [ ] Calculate plant spacing
 	- [ ] Show list of possible plants
 	- [ ] Get & parse input to choose plant
@@ -33,6 +32,7 @@
 ### Extras
 - [ ] Figure out how to have a user `.gitignore`-ed config file to store user's connection string
 - [ ] Add loops to menus to re-prompt for incorrectly entered information
+- [ ] Handle decimal points in user inputs?
 - [ ] Make wording and layout more user-friendly
 	- [ ] Maybe use functions to enforce consistent layout between similar pages
 - [ ] Allow user to check multiple plants at once to compare

@@ -9,7 +9,7 @@ namespace GardenBox
         {
             SQLiteCommand cmd;
             SQLiteDataReader reader;
-            BedArea area = new BedArea();
+            Bed bed = new Bed();
 
             SQLiteConnection con = new SQLiteConnection(@"Data Source = /home/tob/Documents/Academy/Code/Git/dbs/gardenbox.sqlite");
             con.Open();
@@ -17,7 +17,7 @@ namespace GardenBox
             bool mainLoop = true;
             while (mainLoop)
             {
-                // @MainMenu
+                // MainMenu
                 Console.WriteLine("Select an option:\n 1) add size of bed\n 2) calculate plant spacing\n 3) view plant database \n Q) quit program");
 
                 string nav = Console.ReadLine().ToUpper();
@@ -45,6 +45,7 @@ namespace GardenBox
                     {
                         Console.WriteLine("Not found.");
                     }
+                    Console.ReadLine();
                 }
                 else if (nav == "Q")
                 {
@@ -68,10 +69,19 @@ namespace GardenBox
             if (nav == "1")
             {
                 // Calculate using length and width
+                Console.WriteLine("What is the width of your box, in feet?");
+                width = int.Parse(Console.ReadLine());
+                Console.WriteLine("What is the length of your box, in feet?");
+                length = int.Parse(Console.ReadLine());
+                area = length * width;
             }
             else if (nav == "2")
             {
                 // Calculate using square feet
+                Console.WriteLine("What is the area of your box, in square feet?");
+                area = int.Parse(Console.ReadLine());
+                width = 0;
+                length = 0;
             }
             else if (nav == "B")
             {
