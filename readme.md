@@ -18,6 +18,8 @@ Please create a database that will hold plants. You don't need to add more than 
 CREATE TABLE Plants (
 	Id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	Name TEXT,
-	SpaceLow INTEGER,
-	SpaceHigh INTEGER);
+	PlantSpaceFloor INTEGER,
+	PlantSpaceCeil INTEGER,
+	RowSpaceFloor INTEGER,
+	RowSpaceCeil INTEGER);
 ```

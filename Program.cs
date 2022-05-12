@@ -18,7 +18,7 @@ namespace GardenBox
             while (mainLoop)
             {
                 // MainMenu
-                Console.WriteLine("Select an option:\n 1) add size of bed\n 2) calculate plant spacing\n 3) view plant database \n Q) quit program");
+                Console.WriteLine("Select an option:\n 1) add or change size of bed\n 2) calculate plant spacing\n 3) view plant database \n Q) quit program");
 
                 string nav = Console.ReadLine().ToUpper();
 
@@ -29,6 +29,39 @@ namespace GardenBox
                 else if (nav == "2")
                 {
                     // Calculate plant spacing
+
+                    cmd = new SQLiteCommand("SELECT Id, Name FROM Plants", con);
+                    reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            Console.WriteLine($" {reader["Id"]}) {reader["Name"]}");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not found.");
+                    }
+
+                    Console.WriteLine("Select a vegetable by ID number:");
+                    int vegId = int.Parse(Console.ReadLine());
+
+                    cmd = new SQLiteCommand($"SELECT Name, PlantSpaceFloor, PlantSpaceCeil, RowSpaceFloor, RowSpaceCeil FROM Plants WHERE Id = {vegId}", con);
+                    reader = cmd.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            // Do math on spacing.
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not found.");
+                    }
+                    Console.ReadLine();
                 }
                 else if (nav == "3")
                 {
@@ -82,6 +115,7 @@ namespace GardenBox
                 area = int.Parse(Console.ReadLine());
                 width = 0;
                 length = 0;
+                Console.WriteLine(area);
             }
             else if (nav == "B")
             {
