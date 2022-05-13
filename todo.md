@@ -41,7 +41,7 @@
 - [x] Make fancier math to figure out number of rows
 - [ ] Handle blank database cells
 - [ ] Allow user to check multiple plants at once to compare
-	- Either in a single input with commas, to with an "add to compare"
+	- Either in a single input with commas, or with an "add to compare"
 - [ ] Allow user to save/show information for multiple beds
 - [ ] Allow user to input new plants into DB
 - [ ] Allow user to search for a text string. If there are multiple matches, Allow user to select one
