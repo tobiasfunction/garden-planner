@@ -17,25 +17,27 @@
 		- [x] Convert to square feet
 	- [x] Input bed area
 		- [x] Get & parse input
-- [ ] Calculate plant spacing
+- [x] Calculate plant spacing
 	- [x] Show list of possible plants
 	- [x] Get & parse input to choose plant
 	- [x] Get spacing information from DB
 	- [x] Calculate min & max number of plants
-	- [ ] Display:
-		- plant name
-		- plant spacing in inches
-		- box area in square feet
-		- number of plants that will fit
+	- [x] Display:
+		- [x] plant name
+		- [x] plant spacing in inches
+		- [x] box area in square feet
+		- [x] number of plants that will fit
 
 
 ### Extras
-- **Files**
+**Files**
 - [ ] Figure out how to have a user `.gitignore`-ed config file to store user's connection string
-- **Flow**
+
+**Flow**
 - [ ] Add loops to menus to re-prompt for incorrectly entered information
 - [ ] Figure out how to put DB stuff in a Class to clean up overall flow.
-- **Data Handling**
+
+**Data Handling**
 - [x] Make fancier math to figure out number of rows
 - [ ] Handle blank database cells
 - [ ] Allow user to check multiple plants at once to compare
@@ -44,7 +46,8 @@
 - [ ] Allow user to input new plants into DB
 - [ ] Allow user to search for a text string. If there are multiple matches, Allow user to select one
 - [ ] Allow decimal points or feet/inches in measurements
-- **UX**
+
+**UX**
 - [ ] Make wording, flow and layout more human-friendly
 	- [ ] Maybe use functions to enforce consistent layout between similar pages
 - [ ] Show saved dimensions
