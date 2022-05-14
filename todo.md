@@ -32,25 +32,34 @@
 ### Extras
 **Files**
 - [ ] Figure out how to have a user `.gitignore`-ed config file to store user's connection string
+	- _OR_ Set up a remote database
+- [ ] Organize Classes into multiple files
 
 **Flow**
-- [ ] Add loops to menus to re-prompt for incorrectly entered information
-- [x] Figure out how to put DB stuff in a Class to clean up overall flow.
+- [ ] Add loops to menus to re-prompt for incorrectly entered/missing information
+- [x] Figure out how to put DB stuff in a Class to clean up overall flow
+- [ ] Have a default flow that is triggered if there are no saved dimensions
 
 **Data Handling Fixes**
 - [ ] Handle blank database cells
 - [ ] Handle "bed width is less than veg space between rows"
+- [ ] Handle "bed width is greater than bed length," either implicitly or with and "Are you sure?" prompt.
 
 **Data Handling Features**
 - [x] Make fancier math to figure out number of rows
 - [ ] Allow user to check multiple plants at once to compare
 	- Either in a single input with commas, or with an "add to compare"
 - [ ] Allow user to save/show information for multiple beds
+- [ ] Allow user to show history of recent calculations
+	- At its simplest, this could just be a long string that is added to and then printed
+- [ ] Allow user to input a series of rectangles for oddly-shaped beds
 - [ ] Allow user to input new plants into DB
-- [ ] Allow user to search for a text string. If there are multiple matches, Allow user to select one
+- [ ] Allow user to search DB for a text string. If there are multiple matches, Allow user to select one
 - [ ] Allow decimal points or feet/inches in measurements
 
 **UX**
-- [ ] Make wording, flow and layout more human-friendly
-	- [ ] Maybe use functions to enforce consistent layout between similar pages
-- [ ] Show saved dimensions
+- [ ] Make wording clearer/more user-friendly
+- [ ] Use `Console.Clear()` and/or other delineation for new "pages"
+- [ ] Visually differentiate menus/lists/etc instead of having having a wall of text
+- [ ] Use functions to enforce consistent layout between similar pages
+- [ ] Show current saved dimensions
