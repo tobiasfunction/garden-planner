@@ -35,11 +35,14 @@
 
 **Flow**
 - [ ] Add loops to menus to re-prompt for incorrectly entered information
-- [ ] Figure out how to put DB stuff in a Class to clean up overall flow.
+- [x] Figure out how to put DB stuff in a Class to clean up overall flow.
 
-**Data Handling**
-- [x] Make fancier math to figure out number of rows
+**Data Handling Fixes**
 - [ ] Handle blank database cells
+- [ ] Handle "bed width is less than veg space between rows"
+
+**Data Handling Features**
+- [x] Make fancier math to figure out number of rows
 - [ ] Allow user to check multiple plants at once to compare
 	- Either in a single input with commas, or with an "add to compare"
 - [ ] Allow user to save/show information for multiple beds
