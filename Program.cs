@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SQLite;
+using System.Text.RegularExpressions;
 
 namespace GardenBox
 {
@@ -7,17 +8,39 @@ namespace GardenBox
     {
         static void Main(string[] args)
         {
+            Print print = new Print();
             Database db = new Database();
             Bed bed = new Bed();
+
 
             db.Open();
 
             bool mainLoop = true;
             while (mainLoop)
             {
+                print.header();
                 // MainMenu
-                Console.WriteLine("Select an option:\n 1) add or change size of bed\n 2) calculate plant spacing\n 3) view plant database \n Q) quit program");
+                Console.WriteLine("Select an option:");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("  1. ");
+                Console.ResetColor();
+                Console.WriteLine("add or change size of bed");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("  2. ");
+                Console.ResetColor();
+                Console.WriteLine("calculate plant spacing");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("  3. ");
+                Console.ResetColor();
+                Console.WriteLine("view plant database");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("  Q. ");
+                Console.ResetColor();
+                Console.WriteLine("quit program");
 
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("> ");
+                Console.ResetColor();
                 string nav = Console.ReadLine().ToUpper();
 
                 if (nav == "1")
@@ -57,8 +80,15 @@ namespace GardenBox
             {
                 // Calculate using length and width
                 Console.WriteLine("What is the width of your box, in feet?");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("> ");
+                Console.ResetColor();
                 width = int.Parse(Console.ReadLine());
+
                 Console.WriteLine("What is the length of your box, in feet?");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("> ");
+                Console.ResetColor();
                 length = int.Parse(Console.ReadLine());
                 area = length * width;
             }
@@ -82,6 +112,50 @@ namespace GardenBox
         }
     }
 
+    class Print
+    {
+        public void header()
+        {
+            int width = 80;
+            string headerTitle = " Veggie Calculator ";
+            string ornament = "\u2020.";
+
+            Console.Clear();
+            // if (headerTitle.Length % 2 != 0)
+            // {
+            //     headerTitle += " ";
+            // }
+
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("." + string.Concat(Enumerable.Repeat(ornament, (width / 2))));
+            Console.Write("." + string.Concat(Enumerable.Repeat(ornament, ((width - headerTitle.Length) / 4))));
+            Console.ResetColor();
+            Console.Write(headerTitle);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("." + string.Concat(Enumerable.Repeat(ornament, ((width - headerTitle.Length) / 4))));
+            Console.WriteLine("." + string.Concat(Enumerable.Repeat(ornament, (width / 2))));
+            Console.ResetColor();
+            Console.WriteLine();
+
+        }
+
+        public void color(string text)
+        {
+            string[] parts = Regex.Split(str, @"(?<=[\>])|(?=[\<])");
+            foreach (string item in parts)
+            {
+                if (item.StartsWith('<') && item.Contains("/"))
+                {
+                }
+                else
+                {
+                    Console.Write(item);
+                }
+            }
+            Console.WriteLine();
+        }
+    }
     class Database
     {
         public SQLiteConnection con = new SQLiteConnection(@"Data Source = /home/tob/Documents/Academy/Code/Git/dbs/gardenbox.sqlite");
@@ -186,6 +260,5 @@ namespace GardenBox
                 }
             }
         }
-
     }
 }
