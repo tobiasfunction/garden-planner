@@ -33,7 +33,7 @@
 **Files**
 - [ ] Figure out how to have a user `.gitignore`-ed config file to store user's connection string
 	- _OR_ Set up a remote database
-- [ ] Organize Classes into multiple files
+- [x] Organize Classes into multiple files
 
 **Flow**
 - [ ] Add loops to menus to re-prompt for incorrectly entered/missing information
@@ -59,7 +59,8 @@
 
 **UX**
 - [ ] Make wording clearer/more user-friendly
-- [ ] Use `Console.Clear()` and/or other delineation for new "pages"
+- [x] Use `Console.Clear()` and/or other delineation for new "pages"
 - [ ] Visually differentiate menus/lists/etc instead of having having a wall of text
 - [ ] Use functions to enforce consistent layout between similar pages
 - [ ] Show current saved dimensions
+- [x] Colors!
