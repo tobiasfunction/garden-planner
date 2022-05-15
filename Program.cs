@@ -18,10 +18,10 @@ namespace GardenBox
 
                 print.header();
 
-                print.color("  <g>1.</> add or change size of bed");
-                print.color("  <g>2.</> calculate plant spacing");
-                print.color("  <g>3.</> view plant database");
-                print.color("  <g>Q.</> quit program");
+                print.line("  <g>1.</> add or change size of bed");
+                print.line("  <g>2.</> calculate plant spacing");
+                print.line("  <g>3.</> view plant database");
+                print.line("  <g>Q.</> quit program");
 
                 string nav = print.prompt().ToLower();
 
@@ -48,5 +48,5 @@ namespace GardenBox
         }
     }
 
-    
+
 }

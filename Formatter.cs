@@ -3,9 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace GardenBox
 {
-
-
-    class Print
+    public class Print
     {
         public void header()
         {
@@ -35,10 +33,10 @@ namespace GardenBox
 
         public void color(string text)
         {
-            string[] parts = Regex.Split(text, @"(?<=[\>])|(?=[\<])");
+            string[] parts = Regex.Split(text, @"((?=\<).*?(?<=\>))");
+
             foreach (string item in parts)
             {
-
                 switch (item.ToLower())
                 {
                     case "<black>":
@@ -47,8 +45,8 @@ namespace GardenBox
                         Console.ForegroundColor = ConsoleColor.Black;
                         break;
                     case "<blue>":
-                    case "bl":
-                    case "b":
+                    case "<bl>":
+                    case "<b>":
                         Console.ForegroundColor = ConsoleColor.Blue;
                         break;
                     case "<cyan>":
@@ -95,19 +93,19 @@ namespace GardenBox
                         break;
                 }
             }
-            Console.ResetColor();
+        }
+        public void line(string text)
+        {
+            color(text);
             Console.WriteLine();
         }
 
         public string prompt()
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write("> ");
-            Console.ForegroundColor = ConsoleColor.Blue;
+            color("<g>> <b>");
             string input = Console.ReadLine();
             Console.ResetColor();
             return input;
-
         }
     }
 }
