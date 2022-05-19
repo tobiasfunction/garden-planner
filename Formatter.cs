@@ -85,7 +85,7 @@ namespace GardenBox
             string ornament = "v.";
 
             // This is a lot of math because I'm trying to make it work with an arbitrary number of characters
-            // Right now it works `headerTitle`, including the spaces, has a length of (a multiple of 4) + 2
+            // Right now it works if `headerTitle`, including the spaces, has a length of (a multiple of 4) + 2
             Console.Clear();
             // if (headerTitle.Length % 2 == 0)
             // {
