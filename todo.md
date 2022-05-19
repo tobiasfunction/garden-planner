@@ -61,6 +61,6 @@
 - [ ] Make wording clearer/more user-friendly
 - [x] Use `Console.Clear()` and/or other delineation for new "pages"
 - [ ] Visually differentiate menus/lists/etc instead of having having a wall of text
-- [ ] Use functions to enforce consistent layout between similar pages
+- [x] Use functions to enforce consistent layout between similar pages
 - [ ] Show current saved dimensions
 - [x] Colors!

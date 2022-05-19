@@ -6,7 +6,7 @@ namespace GardenBox
     {
         static void Main(string[] args)
         {
-            Print print = new Print();
+            Printer print = new Printer();
             Database db = new Database();
             Bed bed = new Bed();
 
@@ -18,12 +18,12 @@ namespace GardenBox
 
                 print.header();
 
-                print.line("  <g>1.</> add or change size of bed");
-                print.line("  <g>2.</> calculate plant spacing");
-                print.line("  <g>3.</> view plant database");
-                print.line("  <g>Q.</> quit program");
+                print.list("1", "add or change size of bed");
+                print.list("2", "calculate plant spacing");
+                print.list("3", "view plant database");
+                print.list("Q", "quit program");
 
-                string nav = print.prompt().ToLower();
+                string nav = print.read().ToLower();
 
                 if (nav == "1")
                 {
@@ -37,10 +37,12 @@ namespace GardenBox
                 else if (nav == "3")
                 {
                     db.ListAll();
-                    Console.ReadLine();
+                    print.hold();
+                    // Console.ReadLine();
                 }
                 else if (nav == "q")
                 {
+                    print.line("Goodbye!");
                     mainLoop = false;
                     db.Close();
                 }

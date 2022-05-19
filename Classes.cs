@@ -8,7 +8,7 @@ namespace GardenBox
         public SQLiteConnection con = new SQLiteConnection(@"Data Source = /home/tob/Documents/Academy/Code/Git/dbs/gardenbox.sqlite");
         public SQLiteCommand cmd;
         public SQLiteDataReader reader;
-        Print print = new Print();
+        Printer print = new Printer();
 
         public void Open()
         {
@@ -27,7 +27,7 @@ namespace GardenBox
             {
                 while (reader.Read())
                 {
-                    Console.WriteLine($" {reader["Id"]}) {reader["Name"]}");
+                    print.list(reader["Id"].ToString(), reader["Name"].ToString());
                 }
             }
             else
@@ -47,7 +47,7 @@ namespace GardenBox
                 ListAll();
 
                 Console.WriteLine("Select a vegetable by ID number:");
-                int vegId = int.Parse(print.prompt());
+                int vegId = int.Parse(print.read());
 
                 cmd = new SQLiteCommand($"SELECT Name, PlantSpaceFloor, PlantSpaceCeil, RowSpaceFloor, RowSpaceCeil FROM Plants WHERE Id = {vegId}", con);
                 reader = cmd.ExecuteReader();
