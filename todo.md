@@ -39,6 +39,8 @@
 - [ ] Add loops to menus to re-prompt for incorrectly entered/missing information
 - [x] Figure out how to put DB stuff in a Class to clean up overall flow
 - [ ] Have a default flow that is triggered if there are no saved dimensions
+- [ ] Rework menus to use [`Dictionary<>`](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2) objects with a handler for calling functions and handling invalid input.
+	- [`GetMethod()`](https://docs.microsoft.com/en-us/dotnet/api/system.type.getmethod?view=net-6.0)?
 
 **Data Handling Fixes**
 - [ ] Handle blank database cells

@@ -15,7 +15,7 @@ namespace GardenBox
                 but tags for background color and the other colors could easily be added.
                 I deliberately didn't add special handling for strings that contain angle brackets but don't match a tag,
                 so deliberate brackets in the text and misspelled color tags are both treated as normal text.
-             */
+            */
 
             string[] parts = Regex.Split(text, @"(\<.*?\>)");   // this Splits your string into an array of strings
                                                                 // the Regex seperates our tags without deleting any characters
@@ -122,6 +122,11 @@ namespace GardenBox
         {                           // e.g. to keep a loop from progressing until user presses Enter
             write("<c>=></>");      // this is mostly a placeholder for now
             Console.ReadLine();
+        }
+
+        public void invalid()
+        {
+            line("<r>Invalid input.</> Try again?");
         }
     }
 }

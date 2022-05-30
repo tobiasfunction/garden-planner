@@ -12,6 +12,8 @@ namespace GardenBox
 
             db.Open();
 
+
+
             bool mainLoop = true;
             while (mainLoop)
             {
