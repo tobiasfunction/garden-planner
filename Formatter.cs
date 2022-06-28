@@ -8,7 +8,7 @@ namespace GardenBox
         public void write(string text) // A homebrew markup formatter
         {
             /*
-                Normally in .NET, colorizing Console output requires a new line of code every time you want the color to change.
+                Normally in .NET, OS-agnostic terminal colorizing requires a new line of code for each change.
                 This can get really messy and cluttered, especially if you want to colorize specific words or characters in a longer string.
                 This Method allows you to write a string using short tags to define color changes.
                 It currently only supports `Console.Foreground Color` and does not include the "Dark" variants of each color,
@@ -17,8 +17,8 @@ namespace GardenBox
                 so deliberate brackets in the text and misspelled color tags are both treated as normal text.
             */
 
-            string[] parts = Regex.Split(text, @"(\<.*?\>)");   // this Splits your string into an array of strings
-                                                                // the Regex seperates our tags without deleting any characters
+            string[] parts = Regex.Split(text, @"(\<\S*?\>)");   // this Splits your string into an array of strings
+                                                                 // the Regex seperates our tags without deleting any characters
             foreach (string item in parts)                      // you can play with it at https://regex101.com/r/KOaJ79/
             {
                 switch (item.ToLower())
@@ -86,6 +86,8 @@ namespace GardenBox
 
             // This is a lot of math because I'm trying to make it work with an arbitrary number of characters
             // Right now it works if `headerTitle`, including the spaces, has a length of (a multiple of 4) + 2
+            // And I'm working on having it work with anything
+
             Console.Clear();
             // if (headerTitle.Length % 2 == 0)
             // {

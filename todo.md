@@ -38,7 +38,7 @@
 **Flow**
 - [ ] Add loops to menus to re-prompt for incorrectly entered/missing information
 - [x] Figure out how to put DB stuff in a Class to clean up overall flow
-- [ ] Have a default flow that is triggered if there are no saved dimensions
+- [ ] Have a default flow that is triggered when there are no saved dimensions
 - [ ] Rework menus to use [`Dictionary<>`](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2) objects with a handler for calling functions and handling invalid input.
 	- [`GetMethod()`](https://docs.microsoft.com/en-us/dotnet/api/system.type.getmethod?view=net-6.0)?
 
@@ -54,7 +54,7 @@
 - [ ] Allow user to save/show information for multiple beds
 - [ ] Allow user to show history of recent calculations
 	- At its simplest, this could just be a long string that is added to and then printed
-- [ ] Allow user to input a series of rectangles for oddly-shaped beds
+- [ ] Allow user to input a series of rectangles for multiple or oddly-shaped beds
 - [ ] Allow user to input new plants into DB
 - [ ] Allow user to search DB for a text string. If there are multiple matches, Allow user to select one
 - [ ] Allow decimal points or feet/inches in measurements
@@ -62,7 +62,7 @@
 **UX**
 - [ ] Make wording clearer/more user-friendly
 - [x] Use `Console.Clear()` and/or other delineation for new "pages"
-- [ ] Visually differentiate menus/lists/etc instead of having having a wall of text
+- [x] Visually differentiate menus/lists/etc instead of having having a wall of text
 - [x] Use functions to enforce consistent layout between similar pages
 - [ ] Show current saved dimensions
 - [x] Colors!

@@ -1,6 +1,4 @@
-﻿
-
-namespace GardenBox
+﻿namespace GardenBox
 {
     class Program
     {
@@ -9,10 +7,9 @@ namespace GardenBox
             Printer print = new Printer();
             Database db = new Database();
             Bed bed = new Bed();
+            Console.WriteLine("beep");
 
             db.Open();
-
-
 
             bool mainLoop = true;
             while (mainLoop)
@@ -51,6 +48,8 @@ namespace GardenBox
             }
         }
     }
+
+
 
 
 }
