@@ -1,25 +1,14 @@
-## Garden Boxes!!!!
+# Garden Planner
 
-Write a program that will take in a users garden box size, then let them pick from a list of plants and tell them how many they can plant in that space.
+> This program was initially created as a project for [@AcademyPgh](https://github.com/AcademyPgh), which has grown beyond the scope of the original assignment as I endeavour to better understand C#'s classes and data structures.
+> This is a work in progress; see [todo.md](https://github.com/tobiasfunction/garden-planner/blob/master/todo.md) for a more comprehensive list of features I'd like to implement.
 
-Please create a database that will hold plants. You don't need to add more than 2 or 3 plants into the database for testing. Please make sure the database or a description of the database is included in your repo.
+## About
 
-## To run
+A console program written for .NET 6 to calculate how many vegetables can be grown in a bed of a certain size.
 
-- Clone this repo.
-- Create a SQLite database with the below table.
-- Do any neccesary C#/dependency-related setup.
-- Replace the connection string in `Program.cs`.
-- `dotnet run` or :arrow_forward: to run the program.
+## Features
 
-## SQLite Table Definition:
-
-```sql
-CREATE TABLE Plants (
-	Id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-	Name TEXT,
-	PlantSpaceFloor INTEGER,
-	PlantSpaceCeil INTEGER,
-	RowSpaceFloor INTEGER,
-	RowSpaceCeil INTEGER);
-```
+- Calculate based on the dimensions of a bed, or provide square footage.
+- Get a recommended number of plants-per-row and rows-per-bed in addition to the total number of plants.
+- Implements a custom markup language for simple, operating-system-agnostic terminal colors.
